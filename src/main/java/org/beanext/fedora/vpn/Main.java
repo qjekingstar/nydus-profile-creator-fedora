@@ -146,7 +146,7 @@ public class Main {
         	Elements elements = connect.execute().parse().getElementsByClass("account_body").get(0).getElementsByClass("td_left");
         	for(Element element: elements){
         		Element id = element.nextElementSibling().nextElementSibling();
-        		vpns.put(id.text().trim().replace("[VIP]", "").replace("-", "").trim(), id.nextElementSibling().text().trim());
+			vpns.put(id.text().trim().replace("[VIP]", "").replace("-", "").replaceAll(" ", "").trim(), id.nextElementSibling().text().trim());
         	}
         }
         FileUtils.deleteQuietly(tempImg);
